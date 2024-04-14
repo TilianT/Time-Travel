@@ -1,0 +1,49 @@
+:root {
+  // Block sizes
+  --container-width: 102.4rem;
+  --card-heigh: 9rem;
+  --card-heigh-sm: 6rem;
+
+  // Spacing
+  --space-sm: 1rem;
+  --space-md: 1.8rem;
+  --space-lg: 2.4rem;
+
+  // Font family
+  --primary-font: 'Roboto', sans-serif;
+
+  // Font sizes
+  --font-small: 1.2rem;
+  --font-medium: 1.6rem;
+  --font-large: 2rem;
+
+  // Colors
+  --primary-dark: #545454;
+  --primary-light: #ffffff;
+  --primary-background: #f6f6f6;
+  --secondary-background: #6357b1;
+  --btn-background: #23ff90;
+  --btn-background-hover: #5ae09d;
+  --error-color: #aa0606;
+
+  // Border
+  --border-color: #e7e7e7;
+  --border-radius: 0.4rem;
+  --primary-border: 1px solid var(--border-color);
+
+  // Box shadow
+  --box-shadow-color: #d2d2d2;
+  --box-shadow: 0.3rem 0.3rem 0.8rem var(--box-shadow-color);
+
+  // Animation settings for skeleton loader
+  --animation-settings: pulse 1.2s linear infinite;
+  --animation-gradient: linear-gradient(
+    to right,
+    var(--primary-background) 0%,
+    var(--primary-light) 10%,
+    var(--primary-background) 20%,
+    var(--primary-background) 100%
+  );
+}
+
+$brake-point: 768px;

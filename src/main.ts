@@ -1,4 +1,9 @@
-import { createApp } from "vue";
-import App from "./App.vue";
+import { createApp } from 'vue';
+import { createPinia } from 'pinia';
 
-createApp(App).mount("#app");
+import App from './App.vue';
+
+import 'normalize.css';
+import '@/styles/main.scss';
+
+createApp(App).use(createPinia()).mount('#app');

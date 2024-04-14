@@ -1,0 +1,75 @@
+// Variables
+@use './_variables' as *;
+
+// Main styles
+html {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  background:  linear-gradient(
+    -10deg,
+    var(--primary-background) 80%,
+    var(--secondary-background) 80%,
+  );
+  box-sizing: border-box;
+  color: var(--primary-dark);
+  font-size: 10px;
+}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+body {
+  font-family: var(--primary-font);
+}
+
+#app {
+  min-height: 100dvh;
+}
+
+// Basic container
+.container {
+  margin: 0 auto;
+  max-width: var(--container-width);
+  padding: var(--space-lg) var(--space-md);
+  width: 100%;
+}
+
+// Styles for error block
+.error-message {
+  color: var(--error-color);
+  margin: 0 auto;
+  width: 42rem;
+}
+
+// Helper classes for the text
+.text {
+  &--title {
+    font-size: var(--font-large);
+    font-weight: 500;
+  }
+  
+  &--detail {
+    font-size: var(--font-small);
+    font-weight: 500;
+  }
+
+  &--white {
+    color: var(--primary-light);
+  }
+}
+
+// Pulse animation for the skeleton loader
+@keyframes pulse {
+  0% {
+    background-position: 50% 0;
+  }
+
+  100% {
+    background-position: -150% 0;
+  }
+}
