@@ -1,12 +1,22 @@
 <template>
   <BaseCard class="post">
-    <span>Post {{ id }}</span>
+    <span data-test="title">Post {{ id }}</span>
 
     <div class="post__actions">
-      <BaseButton v-if="canMoveUp" @click="emit('moveUp')" icon>
+      <BaseButton
+        v-if="canMoveUp"
+        icon
+        data-test="button-moveUp"
+        @click="emit('moveUp')"
+      >
         <BaseIcon name="chevron-up" />
       </BaseButton>
-      <BaseButton v-if="canMoveDown" @click="emit('moveDown')" icon>
+      <BaseButton
+        v-if="canMoveDown"
+        icon
+        data-test="button-moveDown"
+        @click="emit('moveDown')"
+      >
         <BaseIcon name="chevron-down" />
       </BaseButton>
     </div>

@@ -7,7 +7,7 @@
 <script setup lang="ts">
 import { defineProps, withDefaults } from 'vue';
 
-withDefaults(defineProps<{ icon: boolean }>(), { icon: false });
+withDefaults(defineProps<{ icon?: boolean }>(), { icon: false });
 </script>
 
 <style scoped lang="scss">

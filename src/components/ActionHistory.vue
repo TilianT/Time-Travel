@@ -9,18 +9,20 @@
 
     <div class="history__list">
       <div class="history__list__wrapper">
-        <BaseCard v-if="actions.length === 0">
+        <BaseCard v-if="actions.length === 0" data-test="empty-list">
           <span>There are no actions yet</span>
         </BaseCard>
 
         <template v-else>
           <BaseCard v-for="(element, index) in actions" :key="index">
-            <span>
+            <span data-test="action-title">
               {{
                 `Move Post ${element.id} from index ${element.from} to index ${element.to}`
               }}
             </span>
-            <BaseButton @click="emit('timeTravel', index + 1)">Time travel</BaseButton>
+            <BaseButton @click="emit('timeTravel', index + 1)" data-test="action-button">
+              Time travel
+            </BaseButton>
           </BaseCard>
         </template>
       </div>
@@ -38,7 +40,7 @@ import { Action } from '@/types';
 
 const emit = defineEmits<{ (event: 'timeTravel', steps: number): void }>();
 
-withDefaults(defineProps<{ actions: Action[] }>(), {
+withDefaults(defineProps<{ actions?: Action[] }>(), {
   actions: () => [],
 });
 </script>

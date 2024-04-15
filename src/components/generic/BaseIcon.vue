@@ -15,7 +15,7 @@ import { defineProps, withDefaults } from 'vue';
 
 interface Icon {
   name: string;
-  size: number;
+  size?: number;
 }
 
 withDefaults(defineProps<Icon>(), { size: 15 });

@@ -2,7 +2,6 @@
   <div class="time-travel">
     <div class="time-travel__posts">
       <span class="text--title text--white">Sortable Post List</span>
-
       <TransitionGroup name="flip-list">
         <PostDetails
           v-for="(post, index) in history.get(history.size - 1)"
