@@ -1,6 +1,6 @@
 # time-travel
 
-## Assignment: Sortable post list and List of commited actions
+## Sortable post list and List of commited actions
 The left side component (post list) should load its initial state from https://jsonplaceholder.typicode.com/posts,
 allow the user to update the state via manipulating the UI, and emit the list of actions committed on the right side component (list of actions committed). 
 
@@ -12,11 +12,12 @@ allow the user to update the state via manipulating the UI, and emit the list of
     - e.g. When a user moves the `Post 1` below `Post 2`, then an action card saying “Moved `Post 1` from `index 0` to `index 1`” should be added to the top of the list.
 - Users can can click on the “Time Travel” button on one of the action cards, which rewinds the order of the posts as it was before that action was taken. This action should also remove the clicked action card and the action cards above that.
 
+## Demo
+[Time Travel app](https://main--sparkly-dieffenbachia-f3b1c4.netlify.app/)
+
 ## Technologies
-
 ### Uses Node: v16.14.0 (npm v8.3.1)
-
-### I used
+### I used this instruments:
 - `Vue 3` + `TypeScript` + `Scss`.
 - `normalize.css` for the default styles reset.
 - `Pinia` as a state manager.
