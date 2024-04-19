@@ -1,6 +1,7 @@
 <template>
   <img
     class="icon"
+    :alt="`${name}.svg`"
     viewBox="0 0 24 24"
     :src="require(`@/assets/icons/${name}.svg`)"
     :style="{

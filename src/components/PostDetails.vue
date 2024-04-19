@@ -8,6 +8,7 @@
         icon
         data-test="button-moveUp"
         @click="emit('moveUp')"
+        :aria-label="`Move Post ${id} up`"
       >
         <BaseIcon name="chevron-up" />
       </BaseButton>
@@ -16,6 +17,7 @@
         icon
         data-test="button-moveDown"
         @click="emit('moveDown')"
+        :aria-label="`Move Post ${id} down`"
       >
         <BaseIcon name="chevron-down" />
       </BaseButton>
