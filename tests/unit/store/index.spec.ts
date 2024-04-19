@@ -2,7 +2,7 @@ import { setActivePinia, createPinia } from 'pinia';
 
 import api from '@/api';
 
-import useStore from '@/store';
+import usePostStore from '@/store/post';
 
 import { posts } from '../../variables';
 
@@ -55,18 +55,18 @@ describe('Store', () => {
 
     spy.mockResolvedValue(posts);
 
-    await useStore().fetchList();
+    await usePostStore().fetchList();
 
-    expect(useStore().list).toEqual(parsedPosts);
+    expect(usePostStore().posts).toEqual(parsedPosts);
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
   it('fetchList - sets an error on failed request', async () => {
     spy.mockRejectedValue({});
 
-    await useStore().fetchList();
+    await usePostStore().fetchList();
 
-    expect(useStore().error).toBe(true);
+    expect(usePostStore().error).toBe(true);
     expect(spy).toHaveBeenCalledTimes(1);
   });
 });

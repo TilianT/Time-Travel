@@ -25,6 +25,9 @@ allow the user to update the state via manipulating the UI, and emit the list of
 - `Jest` for Unit Testing.
 - `BEM` for the style naming convention.
 
+## Accessibility
+![Lighthouse](/images/lighthouse.png)
+
 ## Project setup
 ```
 yarn install

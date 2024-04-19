@@ -28,9 +28,9 @@ import BaseIcon from '@/components/generic/BaseIcon.vue';
 import TimeTravel from './TimeTravel.vue';
 import TimeTravelSkeleton from './TimeTravelSkeleton.vue';
 
-import useStore from '@/store';
+import usePostStore from '@/store/post';
 
-const error = computed(() => useStore().error);
+const error = computed(() => usePostStore().error);
 
 const refresh = () => window.location.reload();
 </script>
