@@ -3,10 +3,10 @@ import { ref, computed, ComputedRef, Ref } from 'vue';
 import { Action, PostList } from '@/types';
 
 interface IUseHistory {
-  history: Ref<Action[]>;
   commitedActions: ComputedRef<Action[]>;
-  timeTravel(steps?: number): void;
+  history: Ref<Action[]>;
   swap(indexFrom: number, indexTo: number): void;
+  timeTravel(steps?: number): void;
 }
 
 export default function useHistory(posts: PostList): IUseHistory {
@@ -35,22 +35,22 @@ export default function useHistory(posts: PostList): IUseHistory {
   );
 
   function swap(indexFrom: number, indexTo: number) {
-    const actualPostsPositions = history.value[history.value.length - 1].map(({ moved, ...keepAttrs }: Action) => keepAttrs);
+    const lastHistoryState = history.value[history.value.length - 1].map(({ moved, ...keepAttrs }: Action) => keepAttrs);
 
     const temp = {
-      ...actualPostsPositions[indexTo],
+      ...lastHistoryState[indexTo],
       from: indexTo,
       to: indexFrom,
     };
-    actualPostsPositions[indexTo] = {
-      ...actualPostsPositions[indexFrom],
+    lastHistoryState[indexTo] = {
+      ...lastHistoryState[indexFrom],
       from: indexFrom,
       to: indexTo,
       moved: true,
     };
-    actualPostsPositions[indexFrom] = temp;
+    lastHistoryState[indexFrom] = temp;
 
-    history.value.push(actualPostsPositions);
+    history.value.push(lastHistoryState);
   }
 
   /**
@@ -70,8 +70,8 @@ export default function useHistory(posts: PostList): IUseHistory {
   };
 
   return {
-    history,
     commitedActions,
+    history,
     swap,
     timeTravel,
   };

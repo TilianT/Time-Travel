@@ -38,7 +38,7 @@ const emit = defineEmits<{
 }>();
 
 defineProps<{
-  id: string;
+  id: number | string;
   canMoveUp: boolean;
   canMoveDown: boolean;
 }>();

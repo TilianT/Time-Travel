@@ -4,11 +4,11 @@
       <span class="text--title text--white">Sortable Post List</span>
       <TransitionGroup name="flip-list">
         <PostDetails
-          v-for="(historyAction, index) in history[history.length - 1]"
+          v-for="(postDetails, index) in (history[history.length - 1] as unknown as Action[])"
           :canMoveDown="index < Object.values(postStore.posts).length - 1"
           :canMoveUp="index !== 0"
-          :id="historyAction.id"
-          :key="historyAction.id"
+          :id="postDetails.id"
+          :key="postDetails.id"
           @moveDown="swap(index, index + 1)"
           @moveUp="swap(index, index - 1)"
         />
@@ -20,14 +20,15 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted } from 'vue';
-
 import ActionHistory from '@/components/ActionHistory.vue';
 import PostDetails from '@/components/PostDetails.vue';
 
 import usePostStore from '@/store/post';
 
 import useHistory from '@/composables/useHistory';
+import useUndo from '@/composables/useUndo';
+
+import { Action } from '@/types';
 
 const postStore = usePostStore();
 
@@ -37,28 +38,7 @@ const { commitedActions, history, timeTravel, swap } = useHistory(
   postStore.posts
 );
 
-/**
- * Calls the timeTravel function when CTRL+Z or Command+Z shortcut was pressed
- *
- * @param {event} event - Standard interface that represents an observable event
- *
- */
-const undoHandler = (event: KeyboardEvent) => {
-  if (
-    (event.ctrlKey && event.key === 'z') ||
-    (event.metaKey && event.key === 'z')
-  ) {
-    timeTravel();
-  }
-};
-
-onMounted(() => {
-  document.addEventListener('keydown', undoHandler);
-});
-
-onUnmounted(() => {
-  document.removeEventListener('keydown', undoHandler);
-});
+useUndo(timeTravel);
 </script>
 
 <style lang="scss" scoped>
