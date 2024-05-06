@@ -22,7 +22,7 @@ export default defineStore('post', () => {
   // Fetches the list of posts and sets it to the list state or sets an error if API call wasn't successful
   const fetchList = async () => {
     try {
-      posts.value = parseList((await api.getList()).data);
+      posts.value = parseList(await api.getList());
       error.value = false;
     } catch {
       error.value = true;

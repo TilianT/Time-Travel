@@ -21,7 +21,6 @@ allow the user to update the state via manipulating the UI, and emit the list of
 - `Vue 3` + `TypeScript` + `Scss`.
 - `normalize.css` for the default styles reset.
 - `Pinia` as a state manager.
-- `Axios` as a HTTP Client.
 - `Jest` for Unit Testing.
 - `BEM` for the style naming convention.
 
