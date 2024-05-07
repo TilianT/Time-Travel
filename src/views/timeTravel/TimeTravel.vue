@@ -42,6 +42,7 @@ useUndo(timeTravel);
 </script>
 
 <style lang="scss" scoped>
+// Transition for the post details component
 .flip-list-move {
   transition: transform 0.6s;
 }
